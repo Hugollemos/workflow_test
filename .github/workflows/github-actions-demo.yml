@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: criando as variaveis de ambiente
         run: |
+          mkdir teste
+          cd teste
+          touch dentro
           cat /home/runner/work/workflow_test/workflow_test/fora >> /workflow_test/teste/dentro
         
          
