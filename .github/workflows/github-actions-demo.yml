@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: criando as variaveis de ambiente
         run: |
-          cd teste
+          cd /teste
           pwd
          
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
