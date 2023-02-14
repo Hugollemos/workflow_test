@@ -6,13 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: criando as variaveis de ambiente
-<<<<<<< HEAD
-      shell: |
-         cat /workflow_test/.env >> workflow_test/teste/.env
-=======
         run: |
-         cat /workflow_test/.env >> /workflow_test/teste/.env
->>>>>>> 3f873934b1696908338d0702c86a1ecbf37db8d9
+          cd /workflow_test/workflow_test/teste
+          pwd
+         
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
