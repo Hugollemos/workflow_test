@@ -10,9 +10,8 @@ jobs:
           mkdir teste
           cd teste
           touch dentro
-          pwd        
-          cat /home/runner/work/workflow_test//fora.yml >> /home/runner/work/workflow_test//teste/dentro.yml
-          
+          pwd
+          ls -la
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
