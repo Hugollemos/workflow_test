@@ -11,7 +11,7 @@ jobs:
           cd teste
           touch dentro
           pwd        
-          cat /home/runner/work/workflow_test/workflow_test/fora >> /home/runner/work/workflow_test/workflow_test/teste/dentro
+          cat /home/runner/work/workflow_test//fora >> /home/runner/work/workflow_test//teste/dentro
           
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
