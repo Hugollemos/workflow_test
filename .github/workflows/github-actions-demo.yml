@@ -7,8 +7,9 @@ jobs:
     steps:
       - name: .env create here
         run: |
+          cd /teste
           ls -la
-          touch .env.teste
+          touch .env.production 
           ls -la
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
