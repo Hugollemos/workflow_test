@@ -1,0 +1,13 @@
+porta=123
+camada=123
+casa = "asdasdasda"porta=123
+camada=123
+casa = "asdasdasda"
+
+
+  mkdir teste
+  cd teste
+  touch dentro
+  pwd        
+  shell: /usr/bin/bash -e {0}
+/home/runner/work/workflow_test/workflow_test/teste
