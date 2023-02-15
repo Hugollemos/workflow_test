@@ -13,7 +13,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: criando as variaveis de ambiente
+      
+      - name: .env create here
         run: |
-          ls -la
-          
+          pwd
+          touch .env.teste
+          pwd
