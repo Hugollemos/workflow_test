@@ -7,10 +7,7 @@ jobs:
     steps:
       - name: .env create here
         run: |
-          cd /teste
-          ls -la
-          touch .env.production 
-          ls -la
+          find src
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
