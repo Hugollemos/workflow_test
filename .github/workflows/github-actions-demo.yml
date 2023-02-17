@@ -10,7 +10,6 @@ jobs:
           if test -d "/teste"; then
           cd /teste
           echo $pwd 
-          ls -la
           fi
       - name: .env create here
           touch env.production 
