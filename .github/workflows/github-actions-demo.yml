@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: .env create here
         run: |
+          touch env.production 
+          echo "Nova informação" >> env.production 
           ls /home/runner/work/workflow_test/workflow_test
           echo $pwd 
           
