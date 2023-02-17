@@ -8,10 +8,12 @@ jobs:
       - name: teste de entrada 
         run: |
           if test -d "/teste"; then
-          cd /teste
-          echo $pwd 
+          cd /teste & echo $pwd 
+          ls -la
           fi
+          
       - name: .env create here
+        run: |
           touch env.production 
           echo "database = "host=local user=local password=local dbname=local port=local sslmode=local"" >> env.production
           ls /home/runner/work/workflow_test/workflow_test
