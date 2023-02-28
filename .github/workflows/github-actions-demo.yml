@@ -8,9 +8,11 @@ jobs:
       - name: .env create here
         run: |
           sudo mkdir /tests
-          sudo chmod 666 touch /tests/env.production
-          echo "database = \"host=local user=local password=local dbname=local port=local sslmode=local\"" >> /tests/env.production
+          sudo touch /tests/env.production
+          sudo chmod 666 /tests/env.production
+          echo "database = \"host=local user=local *** dbname=local port=local sslmode=local\"" >> /tests/env.production
           ls -la /tests/
+
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
