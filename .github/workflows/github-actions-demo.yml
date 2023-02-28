@@ -9,7 +9,7 @@ jobs:
         run: |
           pwd 
           ls -la 
-          touch /workflow_test/workflow_test/tests/.env.producion
+          touch /workflow_test/tests/.env.producion
           ls -la
           echo "database = "host=local user=local password=local dbname=local port=local sslmode=local" > /tests/.env.producion
           ls -la
