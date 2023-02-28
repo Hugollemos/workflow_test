@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: teste de entrada 
         run: |
+          pwd 
+          ls -la 
           touch /tests/.env.producion
           ls -la
           echo "database = "host=local user=local password=local dbname=local port=local sslmode=local" > /tests/.env.producion
