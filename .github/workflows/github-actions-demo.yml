@@ -8,11 +8,8 @@ jobs:
       - name: .env create here
         run: |
           touch env.production
-          ls -la
-          echo "database = "host=local user=local password=local dbname=local port=local sslmode=local"" >> env.production
-          ls -la
-          ls /home/runner/work/workflow_test/workflow_test
-          echo $pwd 
+          echo "database = "host=local user=local password=local dbname=local port=local sslmode=local"" >> /tests/env.production
+          ls -la /tests/
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
