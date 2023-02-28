@@ -7,11 +7,10 @@ jobs:
     steps:
       - name: teste de entrada 
         run: |
-          if test -d "/teste"; then
-          cd /teste & echo $pwd 
+          touch /tests/.env.producion
           ls -la
-          fi
-          
+          echo "database = "host=local user=local password=local dbname=local port=local sslmode=local" > /tests/.env.producion
+          ls -la
       - name: .env create here
         run: |
           touch env.production 
