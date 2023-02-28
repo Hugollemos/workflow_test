@@ -7,8 +7,10 @@ jobs:
     steps:
       - name: .env create here
         run: |
-          touch env.production 
+          touch env.production
+          ls -la
           echo "database = "host=local user=local password=local dbname=local port=local sslmode=local"" >> env.production
+          ls -la
           ls /home/runner/work/workflow_test/workflow_test
           echo $pwd 
           
