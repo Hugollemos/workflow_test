@@ -7,7 +7,8 @@ jobs:
     steps:
       - name: .env create here
         run: |
-          echo "database = "host=local user=local password=local dbname=local port=local sslmode=local"" >> /tests/env.production
+          touch /tests/env.production
+          echo "database = \"host=local user=local password=local dbname=local port=local sslmode=local\"" >> /tests/env.production
           ls -la /tests/
           
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
