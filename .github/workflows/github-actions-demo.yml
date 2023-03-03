@@ -7,11 +7,19 @@ jobs:
     steps:
       - name: .env create here
         run: |
-          sudo mkdir /tests
           sudo chmod 666 touch /tests/env.production
           echo "database = \"host=local user=local password=local dbname=local port=local sslmode=local\"" >> /tests/env.production
           ls -la /tests/
           
+          sudo systemctl start postgresql
+          sudo -u postgres psql --command="ALTER USER postgres WITH PASSWORD 'postgres';"
+          sudo -u postgres psql --command="CREATE DATABASE fixpay_test;"
+          sudo -u postgres psql --command="\du"
+
+                    sudo systemctl restart postgresql.service
+
+          sudo g_restore -U postgres -W --dbname=credit2b_development --verbose production.backup
+      
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
