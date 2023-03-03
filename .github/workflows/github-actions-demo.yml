@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: .env create here
         run: |
-<<<<<<< HEAD
-          sudo chmod 666 touch /tests/env.production
           echo "database = \"host=local user=local password=local dbname=local port=local sslmode=local\"" >> /tests/env.production
           ls -la /tests/
           
