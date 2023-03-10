@@ -1,24 +1,31 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+
+name: "Retry action using retry step"
+on:
+	# This action is called when this is pushed to GitHub
+	push:
+	# This action can be manually triggered
+	workflow_call:
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Failing step
-        id: demo
-        run: exit 1
-      - name: The demo step has failed
-        if: ${{ failure() && steps.demo.conclusion == 'failure' }}
-          
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    # This name is up to you
+	retry-job:
+		runs-on: "ubuntu-latest"
+		name: My Job
+		steps:
+			- name: Checkout repository
+			  uses: actions/checkout@v3
+
+			- name: Some action that can fail
+			  # You need to specify an id to be able to tell what the status of this action was
+			  id: myStepId1
+			  # This needs to be true to proceed to the next step of failure
+			  continue-on-error: true
+			  uses: actions/someaction
+
+			# Duplicate of the step that might fail ~ manual retry
+			- name: Some action that can fail
+			  id: myStepId2
+			  # Only run this step if step 1 fails. It knows that step one failed because we specified an `id` for the first step
+			  if: steps.myStepId1.outcome == 'failure'
+			  # This needs to be true to proceed to the next step of failure
+			  continue-on-error: true
+			  uses: actions/someaction
